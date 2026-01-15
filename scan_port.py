@@ -18,10 +18,14 @@ while True:
         laddr = f'{connection.laddr.ip}:{connection.laddr.port}'
         raddr = f'{connection.raddr.ip}:{connection.raddr.port}' if connection.raddr else "N/A"
         types = 'TCP' if connection.type == 1 else 'UDP'
+        
         #Display Data       
-        print('--//----Protocol------------IP--------------PORT----------Status Connection------//')
-        print(f'//    {types:<6}    {laddr:<25}       {raddr:<25}      {connection.status}     //')   
-        print('//-----------------------------------------------------------------------------//')
+        p, ip, port, st = 6, 22, 22, 15
+        print(f"┌{'─'*p}┬{'─'*ip}┬{'─'*port}┬{'─'*st}┐")
+        print(f"│ {'PROTO':<{p-1}}│ {'IP':<{ip-1}}│ {'PORT':<{port-1}}│ {'STATUS':<{st-1}}│")
+        print(f"├{'─'*p}┼{'─'*ip}┼{'─'*port}┼{'─'*st}┤")
+        print(f"│ {types:<{p-1}}│ {laddr:<{ip-1}}│ {raddr:<{port-1}}│ {connection.status:<{st-1}}│")
+        print(f"└{'─'*p}┴{'─'*ip}┴{'─'*port}┴{'─'*st}┘")
     time.sleep(5)
 
     
